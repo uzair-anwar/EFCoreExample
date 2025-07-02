@@ -14,17 +14,20 @@ namespace EFCoreExample
                 context.Students.Add(student);
                 context.SaveChanges();
 
+                // Querying the database
                 var query = context.Students.Where(s => s.Name == "John Doe");
-
+                // Displaying the results
                 foreach (var stud in query)
                 {
                     Console.WriteLine($"Student: {stud.Name}, Age: {stud.Age}");
                 }
 
+                // Updating the student
                 var student = context.Students.First(s => s.Name == "John Doe");
                 student.Age = 23;
                 context.SaveChanges();
 
+                // Deleting the student
                 var student = context.Students.First(s => s.Name == "John Doe");
                 context.Students.Remove(student);
                 context.SaveChanges();
