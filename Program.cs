@@ -14,7 +14,6 @@ namespace EFCoreExample
                 context.Students.Add(student);
                 context.SaveChanges();
 
-                // Querying the student
                 var query = context.Students.Where(s => s.Name == "John Doe");
 
                 foreach (var stud in query)
