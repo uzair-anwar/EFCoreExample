@@ -20,6 +20,14 @@ namespace EFCoreExample
                 {
                     Console.WriteLine($"Student: {stud.Name}, Age: {stud.Age}");
                 }
+
+                var student = context.Students.First(s => s.Name == "John Doe");
+                student.Age = 23;
+                context.SaveChanges();
+
+                var student = context.Students.First(s => s.Name == "John Doe");
+                context.Students.Remove(student);
+                context.SaveChanges();
             }
         }
     }
